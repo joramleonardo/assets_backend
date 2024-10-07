@@ -33,7 +33,7 @@
                 <span>Event Tracker</span>
             </router-link>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <router-link to="/event/list/draft" class="nav-link">
                 <i class="fas fa-edit"></i>
                 <span>Draft List</span>
@@ -52,7 +52,7 @@
                 <i class="fas fa-calendar-alt"></i>
                 <span>Published List</span>
             </router-link>
-        </li>
+        </li> -->
         
         <div class="sidebar-heading">
             Media Management

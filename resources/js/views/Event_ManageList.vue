@@ -191,7 +191,7 @@
                                     </template>
                                     <b-table striped hover 
                                         :items="list_forReview"
-                                        :fields="fields_draft"
+                                        :fields="fields_forReview"
                                         show-empty
                                         >
 
@@ -447,6 +447,23 @@
                         { key: 'details', label: 'Details'},
                         { key: 'action', label: 'Action' }
                     ],
+                    fields_draft: [
+                        { key: 'id', label: 'No'},
+                        { key: 'album_id', label: 'Album ID'},
+                        { key: 'event_title', label: 'Title'},
+                        { key: 'event_category', label: 'Category'},
+                        { key: 'album_status', label: 'Status'},
+                        { key: 'details', label: 'Details'},
+                        { key: 'action', label: 'Action' }
+                    ],
+                    fields_forReview: [
+                        { key: 'id', label: 'No'},
+                        { key: 'album_id', label: 'Album ID'},
+                        { key: 'event_title', label: 'Title'},
+                        { key: 'event_category', label: 'Category'},
+                        { key: 'album_status', label: 'Status'},
+                        { key: 'details', label: 'Details'}
+                    ],
                 }
                 
             },
@@ -522,6 +539,8 @@
                     this.infoModal.title = `Row index: ${index}`
                     this.infoModal.content = JSON.stringify(item, null, 2)
                     this.$root.$emit('bv::show::modal', this.infoModal.id, button)
+                    console.log(`Row index: ${index}`);
+                    console.log(item.album_id);
                 },
                 resetInfoModal() {
                     this.infoModal.title = ''
