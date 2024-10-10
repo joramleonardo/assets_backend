@@ -60,7 +60,7 @@ class AssetsController extends Controller
 
                     $data = new Photo(); 
                     $data->album_id = $item['album_id'];
-                    $data->photo_id = $item['photo_id'];
+                    // $data->photo_id = $item['photo_id'];
                     $data->photo_fileName = $file_newName;
                     $data->photo_personInvolved = $item['photo_personInvolved'];
                     $data->photo_title = $item['photo_title'];
@@ -98,15 +98,12 @@ class AssetsController extends Controller
 
     public function countAlbumEntry(){
         $data = Album::count();
-
         return response()->json($data, 200);
     }
 
     public function countAlbumPhotoEntry(Request $album_id){
         $data = Photo::where('tbl_photo.photo_id', $album_id)
                             ->count();
-        
-
         return response()->json($data, 200);
     }
 
@@ -165,6 +162,26 @@ class AssetsController extends Controller
 
     public function getAllListPhoto(Request $request){
               $data = Photo::get('*');
+        return response()->json($data, 200);
+    }
+
+    public function getListPhoto_selected(Request $request, $album_id){
+        // return $request;
+              $data = Photo::where('tbl_photo.album_id', $album_id)
+                    ->get('*');
+        return response()->json($data, 200);
+    }
+
+    public function getTags_selected(Request $request, $album_id){
+              $data = AlbumTags::where('tbl_album_tags.album_id', $album_id)
+                    ->get('*');
+        return response()->json($data, 200);
+    }
+
+    public function getListVideo_selected(Request $request, $album_id){
+        // return $request;
+              $data = Video::where('tbl_video.album_id', $album_id)
+                    ->get('*');
         return response()->json($data, 200);
     }
 

@@ -1,19 +1,28 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+//LOGIN PAGE
+import Login from './views/Login/Login.vue';
+import Register from './views/Login/RegisterPage.vue';
 
-//EVENTS MANAGEMENT
-import EventHome from './views/Event_Home.vue';
-import EventDashboard from './views/Event_Dashboard.vue';
-import EventCreate from './views/Event_Create.vue';
-import EventManageList from './views/Event_ManageList.vue';
-import EventDraft from './views/Event_Draft.vue';
-import EventList from './views/Event_List.vue';
-import EventListPending from './views/Event_PendingList.vue';
-import EventLibrary from './views/Event_Library.vue';
-import EventPhoto from './views/Event_PhotoList.vue';
-import EventVideo from './views/Event_VideoList.vue';
 
+//ENCODER MANAGEMENT
+import Encoder_EventHome from './views/Encoder/Event_Home.vue';
+import Encoder_EventDashboard from './views/Encoder/Event_Dashboard.vue';
+import Encoder_EventCreate from './views/Encoder/Event_Create.vue';
+import Encoder_EventManageList from './views/Encoder/Event_ManageList.vue';
+import Encoder_EventDraft from './views/Encoder/Event_Draft.vue';
+import Encoder_EventList from './views/Encoder/Event_List.vue';
+import Encoder_EventListPending from './views/Encoder/Event_PendingList.vue';
+import Encoder_EventLibrary from './views/Encoder/Event_Library.vue';
+import Encoder_EventPhoto from './views/Encoder/Event_PhotoList.vue';
+import Encoder_EventVideo from './views/Encoder/Event_VideoList.vue';
+
+
+//PUBLISHER MANAGEMENT
+import Publisher_EventHome from './views/Publisher/Event_Home.vue';
+import Publisher_EventDashboard from './views/Publisher/Event_Dashboard.vue';
+import Publisher_EventManageList from './views/Publisher/Event_ManageList.vue';
 
 
 
@@ -22,61 +31,90 @@ Vue.use(Router);
 const routes = [
  
 
+
+    {
+        path: '/register',
+        name: 'register',
+        component: Register
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
+    },
     {
         path: '/',
         name: '',
-        component: EventHome
+        component: Login
     },
-    //EVENT MANAGEMENT
+    //ENCODER MANAGEMENT
     {
-        path: '/event/',
-        name: 'event',
-        component: EventHome,
+        path: '/en/home/',
+        name: 'en-home',
+        component: Encoder_EventHome,
         children: [
             {
-                path: '/event/dashboard',
-                name: 'event-dashboard',
-                component: EventDashboard,
+                path: '/en/dashboard',
+                name: 'en-dashboard',
+                component: Encoder_EventDashboard,
             },
             {
-                path: '/event/create',
-                name: 'event-create',
-                component: EventCreate,
+                path: '/en/create',
+                name: 'en-create',
+                component: Encoder_EventCreate,
             },
             {
-                path: '/event/manage/list',
-                name: 'event-manage-list',
-                component: EventManageList,
+                path: '/en/manage/list',
+                name: 'en-manage-list',
+                component: Encoder_EventManageList,
             },
             {
-                path: '/event/list/draft',
-                name: 'event-list-draft',
-                component: EventDraft,
+                path: '/en/list/draft',
+                name: 'en-list-draft',
+                component: Encoder_EventDraft,
             },
             {
-                path: '/event/list/pending',
-                name: 'event-list-pending',
-                component: EventListPending,
+                path: '/en/list/pending',
+                name: 'en-list-pending',
+                component: Encoder_EventListPending,
             },
             {
-                path: '/event/list',
-                name: 'event-list',
-                component: EventList,
+                path: '/en/list',
+                name: 'en-list',
+                component: Encoder_EventList,
             },
             {
-                path: '/event/photo/list',
-                name: 'event-photo-list',
-                component: EventPhoto,
+                path: '/en/photo/list',
+                name: 'en-photo-list',
+                component: Encoder_EventPhoto,
             },
             {
-                path: '/event/video/list',
-                name: 'event-video-list',
-                component: EventVideo,
+                path: '/en/video/list',
+                name: 'en-video-list',
+                component: Encoder_EventVideo,
             },
             {
-                path: '/event/library',
-                name: 'event-library',
-                component: EventLibrary,
+                path: '/en/library',
+                name: 'en-library',
+                component: Encoder_EventLibrary,
+            }
+        ],
+    },
+    //PUBLISHER MANAGEMENT
+    {
+        path: '/pub/home/',
+        name: 'pub/home',
+        component: Publisher_EventHome,
+        children: [
+            {
+                path: '/pub/dashboard',
+                name: 'pub-dashboard',
+                component: Publisher_EventDashboard,
+            },
+            {
+                path: '/pub/manage/list',
+                name: 'pub-manage-list',
+                component: Publisher_EventManageList,
             }
         ],
     },

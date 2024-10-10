@@ -58,3 +58,15 @@ export function countAlbumEntry(){
 export function countAlbumPhotoEntry(album_id){
     return httpFile().post(`/countAlbumPhotoEntry/${album_id}`);
 }
+
+export function getListPhoto_selected(album_id){
+    return httpFile().post(`/getListPhoto_selected/${album_id}`);
+}
+
+export function getListVideo_selected(album_id){
+    return httpFile().post(`/getListVideo_selected/${album_id}`);
+}
+
+export function getTags_selected(album_id){
+    return httpFile().post(`/getTags_selected/${album_id}`);
+}

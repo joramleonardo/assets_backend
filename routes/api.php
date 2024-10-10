@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AssetsController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::group(['prefix' => 'auth'], function() {
     Route::post('register', 'AuthController@register');
@@ -33,6 +34,12 @@ Route::post('login','UserController@login');
 Route::get('profile','UserController@getAuthenticatedUser');
 
 
+Route::post('addRegisteredUsers', [LoginController::class, 'addRegisteredUsers']);
+Route::post('validateUser', [LoginController::class, 'validateUser']);
+Route::post('getUserData', [LoginController::class, 'getUserData']);
+
+
+
 // Route::post('addEventData', 'AssetsController@addEventData');
 Route::post('addEventData', [AssetsController::class, 'addEventData']);
 Route::post('addAlbumTags', [AssetsController::class, 'addAlbumTags']);
@@ -49,6 +56,9 @@ Route::get('getAllListUnpublished', [AssetsController::class, 'getAllListUnpubli
 
 
 Route::get('getAllListPhoto', [AssetsController::class, 'getAllListPhoto']);
+Route::post('/getListPhoto_selected/{album_id}', [AssetsController::class, 'getListPhoto_selected']);
+Route::post('/getListVideo_selected/{album_id}', [AssetsController::class, 'getListVideo_selected']);
+Route::post('/getTags_selected/{album_id}', [AssetsController::class, 'getTags_selected']);
 Route::get('getAllListVideo', [AssetsController::class, 'getAllListVideo']);
 
 Route::get('countAlbumEntry', [AssetsController::class, 'countAlbumEntry']);
