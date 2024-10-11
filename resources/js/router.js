@@ -24,6 +24,9 @@ import Publisher_EventHome from './views/Publisher/Event_Home.vue';
 import Publisher_EventDashboard from './views/Publisher/Event_Dashboard.vue';
 import Publisher_EventManageList from './views/Publisher/Event_ManageList.vue';
 
+//ADMIN MANAGEMENT
+import Admin_Home from './views/Admin/Home.vue';
+import Admin_Dashboard from './views/Admin/Dashboard.vue';
 
 
 Vue.use(Router);
@@ -46,6 +49,24 @@ const routes = [
         path: '/',
         name: '',
         component: Login
+    },
+    //ADMIN MANAGEMENT
+    {
+        path: '/admin/home/',
+        name: 'admin/home',
+        component: Admin_Home,
+        children: [
+            {
+                path: '/admin/dashboard',
+                name: 'admin-dashboard',
+                component: Admin_Dashboard,
+            },
+            // {
+            //     path: '/admin/manage/list',
+            //     name: 'admin-manage-list',
+            //     component: Publisher_EventManageList,
+            // }
+        ],
     },
     //ENCODER MANAGEMENT
     {
