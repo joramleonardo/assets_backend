@@ -27,12 +27,12 @@ import Publisher_EventManageList from './views/Publisher/Event_ManageList.vue';
 //ADMIN MANAGEMENT
 import Admin_Home from './views/Admin/Home.vue';
 import Admin_Dashboard from './views/Admin/Dashboard.vue';
+import Admin_Add_Event from './views/Admin/Add_Event.vue';
 
 
 Vue.use(Router);
 
 const routes = [
- 
 
 
     {
@@ -61,11 +61,11 @@ const routes = [
                 name: 'admin-dashboard',
                 component: Admin_Dashboard,
             },
-            // {
-            //     path: '/admin/manage/list',
-            //     name: 'admin-manage-list',
-            //     component: Publisher_EventManageList,
-            // }
+            {
+                path: '/admin/event/add',
+                name: 'admin-event-add',
+                component: Admin_Add_Event,
+            }
         ],
     },
     //ENCODER MANAGEMENT
@@ -144,7 +144,8 @@ const routes = [
 
 const router = new Router({
     routes: routes,
-    linkActiveClass: 'active'
+    linkActiveClass: 'active',
+    // mode: 'history'
 });
 
 export default router;
